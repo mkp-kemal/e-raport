@@ -1,0 +1,36 @@
+{
+  "name": "e-raport",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "env NODE_ENV=production node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "db:makemigrations": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
+    "db_reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
+    "db_start": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
+  },
+  "dependencies": {
+    "admin-lte": "^2.4.18",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "csv-parser": "^3.0.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.11.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.32.1",
+    "sequelize-auto-migrations": "github:scimonster/sequelize-auto-migrations#a063aa6535a3f580623581bf866cef2d609531ba",
+    "sequelize-cli": "^6.6.1",
+    "sweetalert2": "^11.7.16",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,1072 @@
+{
+    "tables": {
+        "Ekstrakulikullers": {
+            "tableName": "Ekstrakulikullers",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nama": {
+                    "field": "nama",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Gurus": {
+            "tableName": "Gurus",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nip": {
+                    "field": "nip",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nama": {
+                    "field": "nama",
+                    "seqType": "Sequelize.STRING"
+                },
+                "jk": {
+                    "field": "jk",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "pendidikan_terakhir": {
+                    "field": "pendidikan_terakhir",
+                    "seqType": "Sequelize.STRING"
+                },
+                "no_telpon": {
+                    "field": "no_telpon",
+                    "seqType": "Sequelize.STRING"
+                },
+                "UserId": {
+                    "field": "UserId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Users",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Kelas": {
+            "tableName": "Kelas",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "tingkat": {
+                    "field": "tingkat",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nama": {
+                    "field": "nama",
+                    "seqType": "Sequelize.STRING"
+                },
+                "kouta": {
+                    "field": "kouta",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "kelompok_kelas": {
+            "tableName": "kelompok_kelas",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "kelompok_matpel_gurus": {
+            "tableName": "kelompok_matpel_gurus",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "MatpelId": {
+                    "field": "MatpelId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "MataPelajarans",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "GuruId": {
+                    "field": "GuruId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Gurus",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "kelompok_wali_kelas": {
+            "tableName": "kelompok_wali_kelas",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "GuruId": {
+                    "field": "GuruId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Gurus",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "MataPelajarans": {
+            "tableName": "MataPelajarans",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "kelompok": {
+                    "field": "kelompok",
+                    "seqType": "Sequelize.STRING"
+                },
+                "kode": {
+                    "field": "kode",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nama": {
+                    "field": "nama",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nilaikkm": {
+                    "field": "nilaikkm",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "NilaiAbsens": {
+            "tableName": "NilaiAbsens",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "s": {
+                    "field": "s",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "a": {
+                    "field": "a",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "i": {
+                    "field": "i",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "NilaiEktrakulikulers": {
+            "tableName": "NilaiEktrakulikulers",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "EkstraId": {
+                    "field": "EkstraId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Ekstrakulikullers",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nilai": {
+                    "field": "nilai",
+                    "seqType": "Sequelize.STRING"
+                },
+                "desk": {
+                    "field": "desk",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "NilaiKeterampilans": {
+            "tableName": "NilaiKeterampilans",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "GuruId": {
+                    "field": "GuruId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Gurus",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "MatpelId": {
+                    "field": "MatpelId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "MataPelajarans",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "ket": {
+                    "field": "ket",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nilai_akhir": {
+                    "field": "nilai_akhir",
+                    "seqType": "Sequelize.DECIMAL"
+                },
+                "nilai": {
+                    "field": "nilai",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "NilaiPengetahuans": {
+            "tableName": "NilaiPengetahuans",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "GuruId": {
+                    "field": "GuruId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Gurus",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "MatpelId": {
+                    "field": "MatpelId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "MataPelajarans",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "ket": {
+                    "field": "ket",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nilai_akhir": {
+                    "field": "nilai_akhir",
+                    "seqType": "Sequelize.DECIMAL"
+                },
+                "nilai": {
+                    "field": "nilai",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "NilaiSikaps": {
+            "tableName": "NilaiSikaps",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nilai_sosial": {
+                    "field": "nilai_sosial",
+                    "seqType": "Sequelize.STRING"
+                },
+                "ket_sosial": {
+                    "field": "ket_sosial",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nilai_spiritual": {
+                    "field": "nilai_spiritual",
+                    "seqType": "Sequelize.STRING"
+                },
+                "ket_spiritual": {
+                    "field": "ket_spiritual",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Prestasis": {
+            "tableName": "Prestasis",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Siswas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Tahuns",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "KelasId": {
+                    "field": "KelasId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Kelas",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "jenis": {
+                    "field": "jenis",
+                    "seqType": "Sequelize.STRING"
+                },
+                "ket": {
+                    "field": "ket",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Rangkings": {
+            "tableName": "Rangkings",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "SiswaId": {
+                    "field": "SiswaId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "TahunId": {
+                    "field": "TahunId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "GuruId": {
+                    "field": "GuruId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "totalNilai": {
+                    "field": "totalNilai",
+                    "seqType": "Sequelize.DECIMAL"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Siswas": {
+            "tableName": "Siswas",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nis": {
+                    "field": "nis",
+                    "seqType": "Sequelize.BIGINT"
+                },
+                "nama": {
+                    "field": "nama",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nisn": {
+                    "field": "nisn",
+                    "seqType": "Sequelize.BIGINT"
+                },
+                "jk": {
+                    "field": "jk",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tgl_lahir": {
+                    "field": "tgl_lahir",
+                    "seqType": "Sequelize.DATE"
+                },
+                "tmpt_lahir": {
+                    "field": "tmpt_lahir",
+                    "seqType": "Sequelize.STRING"
+                },
+                "agama": {
+                    "field": "agama",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "anak_ke": {
+                    "field": "anak_ke",
+                    "seqType": "Sequelize.STRING"
+                },
+                "alamat": {
+                    "field": "alamat",
+                    "seqType": "Sequelize.STRING"
+                },
+                "no_telp": {
+                    "field": "no_telp",
+                    "seqType": "Sequelize.BIGINT"
+                },
+                "asal_sekolah": {
+                    "field": "asal_sekolah",
+                    "seqType": "Sequelize.STRING"
+                },
+                "diterima_kelas": {
+                    "field": "diterima_kelas",
+                    "seqType": "Sequelize.STRING"
+                },
+                "di_terima_semester": {
+                    "field": "di_terima_semester",
+                    "seqType": "Sequelize.STRING"
+                },
+                "ortu_ayah": {
+                    "field": "ortu_ayah",
+                    "seqType": "Sequelize.STRING"
+                },
+                "ortu_ibu": {
+                    "field": "ortu_ibu",
+                    "seqType": "Sequelize.STRING"
+                },
+                "alamat_ortu": {
+                    "field": "alamat_ortu",
+                    "seqType": "Sequelize.STRING"
+                },
+                "no_ortu": {
+                    "field": "no_ortu",
+                    "seqType": "Sequelize.STRING"
+                },
+                "pkj_ortu_ayah": {
+                    "field": "pkj_ortu_ayah",
+                    "seqType": "Sequelize.STRING"
+                },
+                "pkj_ortu_bu": {
+                    "field": "pkj_ortu_bu",
+                    "seqType": "Sequelize.STRING"
+                },
+                "wali": {
+                    "field": "wali",
+                    "seqType": "Sequelize.STRING"
+                },
+                "alamat_wali": {
+                    "field": "alamat_wali",
+                    "seqType": "Sequelize.STRING"
+                },
+                "no_wali": {
+                    "field": "no_wali",
+                    "seqType": "Sequelize.STRING"
+                },
+                "pkj_wali": {
+                    "field": "pkj_wali",
+                    "seqType": "Sequelize.STRING"
+                },
+                "foto": {
+                    "field": "foto",
+                    "seqType": "Sequelize.STRING"
+                },
+                "UserId": {
+                    "field": "UserId",
+                    "allowNull": true,
+                    "references": {
+                        "model": "Users",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "isHaveKelas": {
+                    "field": "isHaveKelas",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Tahuns": {
+            "tableName": "Tahuns",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "tahun": {
+                    "field": "tahun",
+                    "seqType": "Sequelize.STRING"
+                },
+                "kepala_sekolah": {
+                    "field": "kepala_sekolah",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nip": {
+                    "field": "nip",
+                    "seqType": "Sequelize.STRING"
+                },
+                "tgl_raport": {
+                    "field": "tgl_raport",
+                    "seqType": "Sequelize.DATE"
+                },
+                "semester": {
+                    "field": "semester",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Users": {
+            "tableName": "Users",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "username": {
+                    "field": "username",
+                    "seqType": "Sequelize.STRING"
+                },
+                "password": {
+                    "field": "password",
+                    "seqType": "Sequelize.STRING"
+                },
+                "role": {
+                    "field": "role",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 2
+}
